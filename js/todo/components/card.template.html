@@ -1,0 +1,33 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="mb-2" ng-if="!$ctrl.onEdit">
+            <h5 class="card-title">
+                {{ $ctrl.td.name }}
+            </h5>
+            <p class="card-text">
+                {{ $ctrl.td.desc }}
+            </p>
+            <button ng-click="$ctrl.handleEdit()" class="btn btn-outline-warning">Edit</button>
+        <button ng-click="$ctrl.delete($ctrl.td.id)" class="btn mx-1 btn-outline-danger">Delete</button>
+        </div>
+        <form ng-if="$ctrl.onEdit">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                <input type="text" class="form-control" ng-model="$ctrl.td.name" value="{{ $ctrl.td.name }}">
+                <p>
+                    {{ $ctrl.td.name }}
+                </p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea class="form-control" ng-model="$ctrl.td.desc" rows="3"> {{ $ctrl.td.desc }} </textarea>
+            </div>
+            <button ng-click="$ctrl.completeEdit()" class="btn btn-info mb-3">Complete Edit</button>
+        </form>
+        
+    </div>
+    <div class="card-footer text-muted">
+        {{ $ctrl.td.date | date:'short' }}
+        <!-- {{ $ctrl.onEdit }} -->
+    </div>
+</div>

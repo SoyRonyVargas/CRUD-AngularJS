@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyFirstApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controllers</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/http-1.js"></script>
+</head>
+<body ng-controller="FirstController as todoList">
+    <pre >
+        {{ "hola" + (10 / 2+ 11 * 4) + "xd" }}
+    </pre>
+    <h1>
+        {{ yourName }}
+    </h1>
+    <input ng-model="yourName" type="text" placeholder="">
+    <hr>
+    <h1 > {{ name }} </h1>
+    <hr>
+    <h1>
+        datos del todolist
+    </h1>
+    <ul>
+        <li> length - {{ allTodos.length }}  </li>
+    </ul>
+    <section>
+        <h2> Directiva Repeat </h2>
+        <ul>
+            <li ng-repeat="todo in allTodos">
+                {{ todo.name }}
+            </li>
+        </ul>
+        <ul>
+            <li ng-repeat="comentario in comentarios">
+                {{ comentario.comentario }} - @{{ comentario.user }}
+            </li>
+        </ul>
+        <input ng-model="nuevo_comentario" type="text">
+        <button ng-click="agregarComentario()"> Agregar </button>
+    </section>
+    <hr>
+    <h1>Two way data binding</h1>
+    <h3> {{ algo }} </h3>
+    <input ng-model="algo" type="text">
+    <hr>
+</body>
+</html>
